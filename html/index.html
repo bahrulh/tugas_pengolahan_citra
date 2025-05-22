@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Upload Sidik Jari</title></head>
+<body>
+    <h2>Upload Gambar Sidik Jari</h2>
+    <p>Halo, {{ session.user }}! <a href="{{ url_for('logout') }}">Logout</a> | <a href="{{ url_for('history') }}">Lihat Histori</a></p>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Cocokkan</button>
+    </form>
+
+    {% if result %}
+        <h3>Hasil:</h3>
+        <p>Status: <strong>{{ result.status }}</strong></p>
+        <p>Skor: {{ result.score }}</p>
+        <p>Gambar cocok: {{ result.match }}</p>
+    {% endif %}
+</body>
+</html>
